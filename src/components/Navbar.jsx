@@ -73,7 +73,24 @@ export default function Navbar() {
             href="https://wa.me/+919944442901"
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-4 px-5 py-2 bg-[#C9A84C] text-white text-xs tracking-widest uppercase font-body font-medium hover:bg-[#9A7A2E] transition-colors duration-300"
+            className="font-body"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginLeft: 16,
+              padding: '10px 24px',
+              background: '#C9A84C',
+              color: '#ffffff',
+              fontSize: 11,
+              letterSpacing: '0.15em',
+              textTransform: 'uppercase',
+              fontWeight: 500,
+              textDecoration: 'none',
+              transition: 'background 0.3s',
+            }}
+            onMouseEnter={e => e.currentTarget.style.background = '#9A7A2E'}
+            onMouseLeave={e => e.currentTarget.style.background = '#C9A84C'}
           >
             Enquire Now
           </a>
@@ -134,7 +151,21 @@ export default function Navbar() {
                 href="https://wa.me/+919944442901"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="self-start px-5 py-2.5 bg-[#C9A84C] text-white text-xs tracking-widest uppercase font-body font-medium"
+                className="font-body"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '12px 24px',
+                  background: '#C9A84C',
+                  color: '#ffffff',
+                  fontSize: 11,
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  fontWeight: 500,
+                  textDecoration: 'none',
+                  alignSelf: 'flex-start',
+                }}
               >
                 Enquire Now
               </a>
