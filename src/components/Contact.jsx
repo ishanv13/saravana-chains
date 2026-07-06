@@ -64,9 +64,9 @@ export default function Contact() {
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 72 }}>
           <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: false, margin: '-10%', amount: 0.2 }}
             className="font-body"
             style={{ display: 'inline-flex', alignItems: 'center', gap: 12, color: '#C9A84C', fontSize: 11, letterSpacing: '0.4em', textTransform: 'uppercase', marginBottom: 16 }}
           >
@@ -75,9 +75,9 @@ export default function Contact() {
             <span style={{ width: 32, height: 1, background: '#C9A84C', display: 'inline-block' }} />
           </motion.span>
           <motion.h2
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, margin: '-10%', amount: 0.2 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="font-heading"
             style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', fontWeight: 300, color: '#ffffff', display: 'block' }}
@@ -85,9 +85,9 @@ export default function Contact() {
             Visit or <em style={{ color: '#C9A84C' }}>Enquire</em>
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, margin: '-10%', amount: 0.2 }}
             transition={{ duration: 0.8, delay: 0.15 }}
             className="font-body"
             style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14, marginTop: 12, maxWidth: 400, margin: '12px auto 0' }}
@@ -100,9 +100,9 @@ export default function Contact() {
 
           {/* Contact details */}
           <motion.div
-            initial={{ opacity: 0, x: -32 }}
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, margin: '-10%', amount: 0.2 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             style={{ display: 'flex', flexDirection: 'column', gap: 16 }}
           >
@@ -167,9 +167,9 @@ export default function Contact() {
 
           {/* Map */}
           <motion.div
-            initial={{ opacity: 0, x: 32 }}
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, margin: '-10%', amount: 0.2 }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             style={{ position: 'relative', height: 480, borderRadius: 16, border: '1px solid rgba(201,168,76,0.2)', overflow: 'hidden' }}
           >

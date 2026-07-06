@@ -31,9 +31,9 @@ export default function Products() {
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
           <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: false, margin: '-10%', amount: 0.2 }}
             className="font-body"
             style={{ display: 'inline-flex', alignItems: 'center', gap: 12, color: '#C9A84C', fontSize: 11, letterSpacing: '0.4em', textTransform: 'uppercase', marginBottom: 16 }}
           >
@@ -42,9 +42,9 @@ export default function Products() {
             <span style={{ width: 32, height: 1, background: '#C9A84C', display: 'inline-block' }} />
           </motion.span>
           <motion.h2
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, margin: '-10%', amount: 0.2 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="font-heading"
             style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', fontWeight: 300, color: '#1A1A1A', display: 'block' }}
@@ -52,9 +52,9 @@ export default function Products() {
             Our <em style={{ color: '#C9A84C' }}>Catalogue</em>
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, margin: '-10%', amount: 0.2 }}
             transition={{ duration: 0.8, delay: 0.15 }}
             className="font-body"
             style={{ color: '#6B6B6B', fontSize: 14, marginTop: 12, maxWidth: 420, margin: '12px auto 0' }}
@@ -112,9 +112,9 @@ export default function Products() {
 
         {/* Wholesale CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, margin: '-10%', amount: 0.2 }}
           transition={{ duration: 0.8 }}
           style={{ textAlign: 'center', marginTop: 72, paddingTop: 48, borderTop: '1px solid #E8DDD0' }}
         >
@@ -167,9 +167,10 @@ export default function Products() {
 function ProductCard({ product, index, onClick }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.04 }}
+      initial={{ opacity: 0, scale: 0.9, y: 30 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ once: false, margin: '-5%', amount: 0.1 }}
+      transition={{ duration: 0.5, delay: (index % 4) * 0.08 }}
       onClick={onClick}
       className="card-hover"
       style={{

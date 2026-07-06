@@ -1,9 +1,23 @@
 import { motion } from 'framer-motion'
 
+const fadeLeft = {
+  initial: { opacity: 0, x: -50 },
+  whileInView: { opacity: 1, x: 0 },
+  viewport: { once: false, margin: '-10%', amount: 0.2 },
+  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+}
+
+const fadeRight = {
+  initial: { opacity: 0, x: 50 },
+  whileInView: { opacity: 1, x: 0 },
+  viewport: { once: false, margin: '-10%', amount: 0.2 },
+  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+}
+
 const fadeUp = {
-  initial: { opacity: 0, y: 30 },
+  initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-80px' },
+  viewport: { once: false, margin: '-10%', amount: 0.2 },
   transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
 }
 
@@ -22,10 +36,7 @@ export default function About() {
 
           {/* Image side */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            {...fadeLeft}
             style={{ position: 'relative', paddingBottom: 24 }}
           >
             <div style={{ position: 'relative', overflow: 'hidden', borderRadius: 16 }}>
@@ -43,10 +54,10 @@ export default function About() {
 
             {/* Floating badge — positioned inside padded area to avoid overflow issues */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.6 }}
+              initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+              viewport={{ once: false, margin: '-10%', amount: 0.2 }}
+              transition={{ delay: 0.3, duration: 0.6, type: 'spring', stiffness: 100 }}
               style={{
                 position: 'absolute',
                 bottom: 0,
@@ -68,7 +79,7 @@ export default function About() {
 
           {/* Text side */}
           <div>
-            <motion.div {...fadeUp}>
+            <motion.div {...fadeRight}>
               <span className="font-body" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, color: '#C9A84C', fontSize: 11, letterSpacing: '0.4em', textTransform: 'uppercase', marginBottom: 24 }}>
                 <span style={{ width: 32, height: 1, background: '#C9A84C', display: 'inline-block' }} />
                 Our Story
@@ -76,10 +87,8 @@ export default function About() {
             </motion.div>
 
             <motion.h2
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              {...fadeRight}
+              transition={{ ...fadeRight.transition, delay: 0.1 }}
               className="font-heading"
               style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', fontWeight: 300, color: '#1A1A1A', lineHeight: 1.15, marginBottom: 24 }}
             >
@@ -89,10 +98,8 @@ export default function About() {
             </motion.h2>
 
             <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              {...fadeRight}
+              transition={{ ...fadeRight.transition, delay: 0.2 }}
               className="font-body"
               style={{ color: '#6B6B6B', fontSize: 15, lineHeight: 1.8, marginBottom: 20 }}
             >
@@ -103,10 +110,8 @@ export default function About() {
             </motion.p>
 
             <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              {...fadeRight}
+              transition={{ ...fadeRight.transition, delay: 0.3 }}
               className="font-body"
               style={{ color: '#6B6B6B', fontSize: 15, lineHeight: 1.8, marginBottom: 40 }}
             >
@@ -117,10 +122,8 @@ export default function About() {
 
             {/* Stats row */}
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              {...fadeUp}
+              transition={{ ...fadeUp.transition, delay: 0.4 }}
               style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, paddingTop: 32, borderTop: '1px solid #E8DDD0' }}
             >
               {stats.map((s) => (
