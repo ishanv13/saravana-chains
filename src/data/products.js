@@ -33,7 +33,7 @@ export const contact = {
   phone2: '+919597924916',
   whatsapp: 'https://wa.me/+919944442901',
   email: 'saravanachains19@gmail.com',
-  address: '42L, CVR Complex, South Avani Moola Street, Madurai, Tamil Nadu — 625001',
+  address: '42L, CVR Complex, South Avani Moola Street, Madurai, Tamil Nadu - 625001',
   maps: 'https://maps.app.goo.gl/7yfPisLZi2Dk5FWi6',
   mapsEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.0!2d78.1198!3d9.9195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c582b1189633%3A0xdc955b7264f3f7c1!2sSARAVANA%20CHAINS%20PRIVATE%20LIMITED!5e0!3m2!1sen!2sin!4v1700000000000',
 }

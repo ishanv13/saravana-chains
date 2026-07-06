@@ -31,32 +31,21 @@ export default function Hero() {
         }}
       />
 
-      {/* Decorative corner lines */}
-      <div style={{ position: 'absolute', top: 96, left: 48, width: 64, height: 64, borderTop: '1px solid rgba(201,168,76,0.3)', borderLeft: '1px solid rgba(201,168,76,0.3)' }} />
-      <div style={{ position: 'absolute', top: 96, right: 48, width: 64, height: 64, borderTop: '1px solid rgba(201,168,76,0.3)', borderRight: '1px solid rgba(201,168,76,0.3)' }} />
-      <div style={{ position: 'absolute', bottom: 96, left: 48, width: 64, height: 64, borderBottom: '1px solid rgba(201,168,76,0.3)', borderLeft: '1px solid rgba(201,168,76,0.3)' }} />
-      <div style={{ position: 'absolute', bottom: 96, right: 48, width: 64, height: 64, borderBottom: '1px solid rgba(201,168,76,0.3)', borderRight: '1px solid rgba(201,168,76,0.3)' }} />
-
       {/* Content */}
       <div className="section-container" style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
 
-        {/* Triangle logo mark */}
+        {/* Logo mark */}
         <motion.div
           initial={{ opacity: 0, scale: 0.7 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           style={{ display: 'flex', justifyContent: 'center', marginBottom: 40 }}
         >
-          <svg width="90" height="78" viewBox="0 0 90 78" fill="none">
-            <defs>
-              <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#9A7A2E" />
-                <stop offset="50%" stopColor="#E8C96A" />
-                <stop offset="100%" stopColor="#9A7A2E" />
-              </linearGradient>
-            </defs>
-            <polygon points="45,4 86,74 4,74" stroke="url(#goldGrad)" strokeWidth="1.5" fill="none" />
-          </svg>
+          <img
+            src="https://nfc.dgtechsoln.com/wp-content/uploads/2025/08/WhatsApp-Image-2025-08-30-at-6.52.43-PM-300x300.jpeg"
+            alt="Saravana Chains Logo"
+            style={{ width: 90, height: 90, borderRadius: '50%', objectFit: 'cover', border: '2px solid #C9A84C', padding: 4 }}
+          />
         </motion.div>
 
         {/* Est. badge */}
@@ -129,6 +118,7 @@ export default function Hero() {
               textTransform: 'uppercase',
               fontWeight: 500,
               textDecoration: 'none',
+              borderRadius: 32,
               transition: 'background 0.3s',
             }}
             onMouseEnter={e => e.currentTarget.style.background = '#9A7A2E'}
@@ -151,6 +141,7 @@ export default function Hero() {
               letterSpacing: '0.15em',
               textTransform: 'uppercase',
               textDecoration: 'none',
+              borderRadius: 32,
               transition: 'background 0.3s',
             }}
             onMouseEnter={e => e.currentTarget.style.background = 'rgba(201,168,76,0.1)'}

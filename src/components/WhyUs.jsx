@@ -19,7 +19,7 @@ const stats = [
     ),
     value: 'B2B',
     label: 'Wholesale Focus',
-    desc: 'Built for retailers, distributors and jewellery businesses — competitive trade pricing.',
+    desc: 'Built for retailers, distributors and jewellery businesses - competitive trade pricing.',
   },
   {
     icon: (
@@ -85,6 +85,7 @@ export default function WhyUs() {
               style={{
                 textAlign: 'center',
                 padding: 32,
+                borderRadius: 16,
                 background: '#FAF7F2',
                 border: '1px solid #E8DDD0',
                 transition: 'border-color 0.4s, box-shadow 0.4s',

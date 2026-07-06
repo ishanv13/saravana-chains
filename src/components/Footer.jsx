@@ -14,9 +14,11 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-              <svg width="28" height="24" viewBox="0 0 32 28" fill="none">
-                <polygon points="16,2 30,26 2,26" stroke="#C9A84C" strokeWidth="1.5" fill="none" />
-              </svg>
+              <img
+                src="https://nfc.dgtechsoln.com/wp-content/uploads/2025/08/WhatsApp-Image-2025-08-30-at-6.52.43-PM-300x300.jpeg"
+                alt="Saravana Chains Logo"
+                style={{ width: 40, height: 40, borderRadius: '50%', objectFit: 'cover' }}
+              />
               <div>
                 <span className="font-heading" style={{ fontWeight: 600, letterSpacing: '0.15em', fontSize: 13, textTransform: 'uppercase', color: '#ffffff', display: 'block' }}>
                   Saravana Chains
@@ -68,7 +70,7 @@ export default function Footer() {
                 saravanachains19@gmail.com
               </a>
               <p className="font-body" style={{ color: 'rgba(255,255,255,0.25)', fontSize: 11, lineHeight: 1.7 }}>
-                42L, CVR Complex, South Avani Moola Street,<br />Madurai — 625001
+                42L, CVR Complex, South Avani Moola Street,<br />Madurai - 625001
               </p>
             </div>
           </div>

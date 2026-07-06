@@ -33,14 +33,11 @@ export default function Navbar() {
       <div className="section-container flex items-center justify-between h-20">
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-3">
-          <svg width="32" height="28" viewBox="0 0 32 28" fill="none">
-            <polygon
-              points="16,2 30,26 2,26"
-              stroke={scrolled ? '#C9A84C' : '#E8C96A'}
-              strokeWidth="2"
-              fill="none"
-            />
-          </svg>
+          <img
+            src="https://nfc.dgtechsoln.com/wp-content/uploads/2025/08/WhatsApp-Image-2025-08-30-at-6.52.43-PM-300x300.jpeg"
+            alt="Saravana Chains Logo"
+            style={{ width: 40, height: 40, borderRadius: '50%', objectFit: 'cover' }}
+          />
           <div>
             <span
               className="font-heading font-semibold tracking-widest text-sm uppercase block transition-colors duration-500"
@@ -87,6 +84,7 @@ export default function Navbar() {
               textTransform: 'uppercase',
               fontWeight: 500,
               textDecoration: 'none',
+              borderRadius: 32,
               transition: 'background 0.3s',
             }}
             onMouseEnter={e => e.currentTarget.style.background = '#9A7A2E'}
@@ -164,6 +162,7 @@ export default function Navbar() {
                   textTransform: 'uppercase',
                   fontWeight: 500,
                   textDecoration: 'none',
+                  borderRadius: 32,
                   alignSelf: 'flex-start',
                 }}
               >

@@ -59,7 +59,7 @@ export default function Products() {
             className="font-body"
             style={{ color: '#6B6B6B', fontSize: 14, marginTop: 12, maxWidth: 420, margin: '12px auto 0' }}
           >
-            Click any piece to view in full — enquire directly via WhatsApp for wholesale pricing.
+            Click any piece to view in full - enquire directly via WhatsApp for wholesale pricing.
           </motion.p>
         </div>
 
@@ -75,6 +75,7 @@ export default function Products() {
                 fontSize: 11,
                 letterSpacing: '0.15em',
                 textTransform: 'uppercase',
+                borderRadius: 32,
                 border: activeCategory === cat ? 'none' : '1px solid #E8DDD0',
                 background: activeCategory === cat ? '#C9A84C' : 'transparent',
                 color: activeCategory === cat ? '#ffffff' : '#6B6B6B',
@@ -137,6 +138,7 @@ export default function Products() {
               textTransform: 'uppercase',
               fontWeight: 500,
               textDecoration: 'none',
+              borderRadius: 32,
               transition: 'background 0.3s',
             }}
             onMouseEnter={e => e.currentTarget.style.background = '#9A7A2E'}
@@ -173,6 +175,7 @@ function ProductCard({ product, index, onClick }) {
       style={{
         position: 'relative',
         overflow: 'hidden',
+        borderRadius: 16,
         cursor: 'pointer',
         background: '#F0EBE1',
         aspectRatio: '3/4',

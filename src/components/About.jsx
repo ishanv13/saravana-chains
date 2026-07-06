@@ -28,7 +28,7 @@ export default function About() {
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             style={{ position: 'relative', paddingBottom: 24 }}
           >
-            <div style={{ position: 'relative', overflow: 'hidden' }}>
+            <div style={{ position: 'relative', overflow: 'hidden', borderRadius: 16 }}>
               <img
                 src="https://nfc.dgtechsoln.com/wp-content/uploads/2025/08/Saravana-Chains-PVT.-LTD-21.jpeg"
                 alt="Saravana Chains Gold Hollow Rope Chain"
@@ -38,7 +38,7 @@ export default function About() {
               {/* Gradient overlay */}
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(26,18,8,0.4), transparent)', pointerEvents: 'none' }} />
               {/* Gold border frame */}
-              <div style={{ position: 'absolute', inset: 0, border: '1px solid rgba(201,168,76,0.2)', pointerEvents: 'none' }} />
+              <div style={{ position: 'absolute', inset: 0, border: '1px solid rgba(201,168,76,0.2)', pointerEvents: 'none', borderRadius: 16 }} />
             </div>
 
             {/* Floating badge — positioned inside padded area to avoid overflow issues */}
@@ -54,6 +54,7 @@ export default function About() {
                 background: '#C9A84C',
                 color: '#ffffff',
                 padding: '16px 24px',
+                borderRadius: 16,
                 boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
               }}
             >
@@ -96,7 +97,7 @@ export default function About() {
               style={{ color: '#6B6B6B', fontSize: 15, lineHeight: 1.8, marginBottom: 20 }}
             >
               Since 2019, Saravana Chains Pvt. Ltd has been crafting fine gold jewellery
-              from the heart of Madurai — one of India's most storied goldsmithing cities.
+              from the heart of Madurai - one of India's most storied goldsmithing cities.
               We combine traditional Tamil craftsmanship with modern manufacturing precision
               to produce chains and bracelets of exceptional quality.
             </motion.p>
@@ -111,7 +112,7 @@ export default function About() {
             >
               As a dedicated manufacturer and wholesaler, we partner with retailers and
               businesses across India, offering both machine-made precision and the warmth
-              of handcrafted jewellery — including fully customised ornaments to your specification.
+              of handcrafted jewellery - including fully customised ornaments to your specification.
             </motion.p>
 
             {/* Stats row */}

@@ -17,7 +17,7 @@ const services = [
       </svg>
     ),
     title: 'Chains & Bracelets',
-    desc: 'An extensive range of gold chains and bracelets — from classic rope and curb to modern IPL and Rajcot designs.',
+    desc: 'An extensive range of gold chains and bracelets - from classic rope and curb to modern IPL and Rajcot designs.',
   },
   {
     icon: (
@@ -35,7 +35,7 @@ const services = [
       </svg>
     ),
     title: 'Machine Made & Handmade',
-    desc: 'The best of both worlds — machine-made precision for consistent quality at scale, and handmade artistry for heritage designs.',
+    desc: 'The best of both worlds - machine-made precision for consistent quality at scale, and handmade artistry for heritage designs.',
   },
 ]
 
@@ -81,6 +81,7 @@ export default function Services() {
               style={{
                 position: 'relative',
                 padding: 32,
+                borderRadius: 16,
                 border: '1px solid rgba(201,168,76,0.15)',
                 background: 'linear-gradient(135deg, rgba(201,168,76,0.04) 0%, transparent 100%)',
                 transition: 'border-color 0.4s',
@@ -88,10 +89,6 @@ export default function Services() {
               }}
               whileHover={{ borderColor: 'rgba(201,168,76,0.5)' }}
             >
-              {/* Corner accents */}
-              <div style={{ position: 'absolute', top: 0, left: 0, width: 20, height: 20, borderTop: '1px solid rgba(201,168,76,0.4)', borderLeft: '1px solid rgba(201,168,76,0.4)' }} />
-              <div style={{ position: 'absolute', bottom: 0, right: 0, width: 20, height: 20, borderBottom: '1px solid rgba(201,168,76,0.4)', borderRight: '1px solid rgba(201,168,76,0.4)' }} />
-
               <div style={{ color: 'rgba(201,168,76,0.7)', marginBottom: 24 }}>
                 {s.icon}
               </div>

@@ -50,7 +50,7 @@ const contactItems = [
       </svg>
     ),
     label: 'Address',
-    content: '42L, CVR Complex, South Avani Moola Street, Madurai, Tamil Nadu — 625001',
+    content: '42L, CVR Complex, South Avani Moola Street, Madurai, Tamil Nadu - 625001',
     href: contact.maps,
     external: true,
   },
@@ -117,6 +117,7 @@ export default function Contact() {
                   alignItems: 'flex-start',
                   gap: 20,
                   padding: 24,
+                  borderRadius: 16,
                   border: '1px solid rgba(201,168,76,0.15)',
                   textDecoration: 'none',
                   transition: 'border-color 0.3s',
@@ -152,6 +153,7 @@ export default function Contact() {
                 textTransform: 'uppercase',
                 fontWeight: 500,
                 textDecoration: 'none',
+                borderRadius: 32,
                 marginTop: 8,
                 transition: 'background 0.3s',
               }}
@@ -169,7 +171,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            style={{ position: 'relative', height: 480, border: '1px solid rgba(201,168,76,0.2)', overflow: 'hidden' }}
+            style={{ position: 'relative', height: 480, borderRadius: 16, border: '1px solid rgba(201,168,76,0.2)', overflow: 'hidden' }}
           >
             <iframe
               title="Saravana Chains Location"
@@ -187,6 +189,7 @@ export default function Contact() {
               left: 16,
               background: 'rgba(26,18,8,0.9)',
               border: '1px solid rgba(201,168,76,0.3)',
+              borderRadius: 12,
               padding: '12px 16px',
             }}>
               <p className="font-heading" style={{ color: '#ffffff', fontSize: 15, fontWeight: 500 }}>Saravana Chains Pvt. Ltd</p>
