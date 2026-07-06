@@ -1,0 +1,26 @@
+{
+  "name": "saravana-chains",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "homepage": "https://ishanv13.github.io/saravana-chains",
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.2",
+    "@vitejs/plugin-react": "^6.0.3",
+    "tailwindcss": "^4.3.2",
+    "typescript": "~6.0.2",
+    "vite": "^8.1.1"
+  },
+  "dependencies": {
+    "framer-motion": "^12.42.2",
+    "gh-pages": "^6.3.0",
+    "yet-another-react-lightbox": "^3.32.0"
+  }
+}
