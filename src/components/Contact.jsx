@@ -58,7 +58,7 @@ const contactItems = [
 
 export default function Contact() {
   return (
-    <section id="contact" style={{ padding: '112px 0', background: '#1A1208' }}>
+    <section id="contact" style={{ padding: '112px 0', background: 'transparent' }}>
       <div className="section-container">
 
         {/* Header */}
@@ -68,11 +68,11 @@ export default function Contact() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: false, margin: '-10%', amount: 0.2 }}
             className="font-body"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 12, color: '#C9A84C', fontSize: 11, letterSpacing: '0.4em', textTransform: 'uppercase', marginBottom: 16 }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 12, color: '#CA8A04', fontSize: 11, letterSpacing: '0.4em', textTransform: 'uppercase', marginBottom: 16 }}
           >
-            <span style={{ width: 32, height: 1, background: '#C9A84C', display: 'inline-block' }} />
+            <span style={{ width: 32, height: 1, background: '#CA8A04', display: 'inline-block' }} />
             Get In Touch
-            <span style={{ width: 32, height: 1, background: '#C9A84C', display: 'inline-block' }} />
+            <span style={{ width: 32, height: 1, background: '#CA8A04', display: 'inline-block' }} />
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -82,7 +82,7 @@ export default function Contact() {
             className="font-heading"
             style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', fontWeight: 300, color: '#ffffff', display: 'block' }}
           >
-            Visit or <em style={{ color: '#C9A84C' }}>Enquire</em>
+            Visit or <em style={{ color: '#CA8A04' }}>Enquire</em>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -90,7 +90,7 @@ export default function Contact() {
             viewport={{ once: false, margin: '-10%', amount: 0.2 }}
             transition={{ duration: 0.8, delay: 0.15 }}
             className="font-body"
-            style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14, marginTop: 12, maxWidth: 400, margin: '12px auto 0' }}
+            style={{ color: '#A8A29E', fontSize: 14, marginTop: 12, maxWidth: 400, margin: '12px auto 0' }}
           >
             We welcome wholesale enquiries, custom order discussions and factory visits.
           </motion.p>

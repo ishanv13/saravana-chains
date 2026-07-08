@@ -45,7 +45,7 @@ const stats = [
 
 export default function WhyUs() {
   return (
-    <section style={{ padding: '112px 0', background: '#F0EBE1' }}>
+    <section style={{ padding: '112px 0', background: 'transparent' }}>
       <div className="section-container">
 
         {/* Header */}
@@ -55,11 +55,11 @@ export default function WhyUs() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: false, margin: '-10%', amount: 0.2 }}
             className="font-body"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 12, color: '#C9A84C', fontSize: 11, letterSpacing: '0.4em', textTransform: 'uppercase', marginBottom: 16 }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 12, color: '#CA8A04', fontSize: 11, letterSpacing: '0.4em', textTransform: 'uppercase', marginBottom: 16 }}
           >
-            <span style={{ width: 32, height: 1, background: '#C9A84C', display: 'inline-block' }} />
+            <span style={{ width: 32, height: 1, background: '#CA8A04', display: 'inline-block' }} />
             Why Choose Us
-            <span style={{ width: 32, height: 1, background: '#C9A84C', display: 'inline-block' }} />
+            <span style={{ width: 32, height: 1, background: '#CA8A04', display: 'inline-block' }} />
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -67,9 +67,9 @@ export default function WhyUs() {
             viewport={{ once: false, margin: '-10%', amount: 0.2 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="font-heading"
-            style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', fontWeight: 300, color: '#1A1A1A', display: 'block' }}
+            style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', fontWeight: 300, color: '#ffffff', display: 'block' }}
           >
-            The <em style={{ color: '#C9A84C' }}>Saravana</em> Difference
+            The <em style={{ color: '#CA8A04' }}>Saravana</em> Difference
           </motion.h2>
         </div>
 
@@ -82,29 +82,22 @@ export default function WhyUs() {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: false, margin: '-5%', amount: 0.1 }}
               transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+              className="glass-panel"
               style={{
                 textAlign: 'center',
                 padding: 32,
-                borderRadius: 16,
-                background: '#FAF7F2',
-                border: '1px solid #E8DDD0',
-                transition: 'border-color 0.4s, box-shadow 0.4s',
-              }}
-              whileHover={{
-                borderColor: 'rgba(201,168,76,0.4)',
-                boxShadow: '0 8px 32px rgba(201,168,76,0.1)',
               }}
             >
-              <div style={{ display: 'flex', justifyContent: 'center', color: 'rgba(201,168,76,0.6)', marginBottom: 20 }}>
+              <div style={{ display: 'flex', justifyContent: 'center', color: '#CA8A04', marginBottom: 20 }}>
                 {s.icon}
               </div>
-              <div className="font-heading" style={{ fontSize: 36, fontWeight: 600, color: '#C9A84C', marginBottom: 8 }}>
+              <div className="font-heading text-gold-gradient" style={{ fontSize: 36, fontWeight: 600, marginBottom: 8 }}>
                 {s.value}
               </div>
-              <div className="font-body" style={{ fontSize: 13, fontWeight: 500, color: '#1A1A1A', letterSpacing: '0.05em', marginBottom: 12 }}>
+              <div className="font-body" style={{ fontSize: 13, fontWeight: 500, color: '#FFFFFF', letterSpacing: '0.05em', marginBottom: 12 }}>
                 {s.label}
               </div>
-              <p className="font-body" style={{ fontSize: 12, color: '#9B9B9B', lineHeight: 1.6 }}>
+              <p className="font-body" style={{ fontSize: 12, color: '#A8A29E', lineHeight: 1.6 }}>
                 {s.desc}
               </p>
             </motion.div>

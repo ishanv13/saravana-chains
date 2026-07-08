@@ -1,17 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cream: #FAF7F2;
-  --color-cream-dark: #F0EBE1;
-  --color-cream-darker: #E8DDD0;
-  --color-gold: #C9A84C;
-  --color-gold-light: #E8C96A;
-  --color-gold-dark: #9A7A2E;
-  --color-gold-pale: #F5EDD4;
-  --color-charcoal: #1A1A1A;
-  --color-charcoal-light: #2D2D2D;
-  --color-muted: #6B6B6B;
-  --color-muted-light: #9B9B9B;
+  --color-primary: #1C1917;
+  --color-on-primary: #FFFFFF;
+  --color-secondary: #44403C;
+  --color-accent: #CA8A04;
+  --color-background: #0C0A09;
+  --color-foreground: #FAFAF9;
+  --color-muted: #A8A29E;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-ring: #1C1917;
+
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Montserrat', 'Inter', system-ui, sans-serif;
 }
 
 *, *::before, *::after {
@@ -24,24 +25,101 @@ html {
   scroll-behavior: smooth;
   width: 100%;
   overflow-x: hidden;
+  background-color: #0C0A09;
 }
 
 body {
   width: 100%;
   overflow-x: hidden;
-  background-color: #FAF7F2;
-  color: #1A1A1A;
-  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #0C0A09;
+  color: #FAFAF9;
+  font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
   width: 100%;
-  overflow-x: hidden;
+  height: 100%;
 }
 
-/* Consistent centered container used by every section */
+/* Hide native scrollbar since Drei ScrollControls will handle scrolling or we can keep it depending on implementation. We'll hide it for a cleaner immersive look. */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0C0A09;
+}
+::-webkit-scrollbar-thumb {
+  background: #44403C;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #CA8A04;
+}
+
+/* Font helpers */
+.font-heading {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-body {
+  font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+}
+
+/* Liquid Glass Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  border-radius: 16px;
+}
+
+.glass-panel:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(202, 138, 4, 0.3);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(90deg, #E8C96A 0%, #A16207 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #A16207 0%,
+    #CA8A04 25%,
+    #E8C96A 50%,
+    #CA8A04 75%,
+    #A16207 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(202, 138, 4, 0.4); }
+  50% { box-shadow: 0 0 0 14px rgba(202, 138, 4, 0); }
+}
+
+.whatsapp-pulse {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Consistent centered container */
 .section-container {
   width: 100%;
   max-width: 1200px;
@@ -58,7 +136,6 @@ body {
   }
 }
 
-/* Two-column grid */
 .two-col {
   display: grid;
   grid-template-columns: 1fr;
@@ -73,7 +150,6 @@ body {
   }
 }
 
-/* Four-column card grid */
 .four-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -86,7 +162,6 @@ body {
   }
 }
 
-/* Product grid */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -105,57 +180,6 @@ body {
   }
 }
 
-/* Font helpers — Tailwind v4 doesn't support font-['...'] arbitrary syntax reliably */
-.font-heading {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-}
-
-.font-body {
-  font-family: 'Inter', system-ui, sans-serif;
-}
-
-/* Gold shimmer animation */
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.5); }
-  50% { box-shadow: 0 0 0 14px rgba(201, 168, 76, 0); }
-}
-
-.shimmer-text {
-  background: linear-gradient(
-    90deg,
-    #9A7A2E 0%,
-    #C9A84C 25%,
-    #E8C96A 50%,
-    #C9A84C 75%,
-    #9A7A2E 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer 4s linear infinite;
-}
-
-.card-hover {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 32px rgba(0,0,0,0.12), 0 0 16px rgba(201,168,76,0.15);
-}
-
-.whatsapp-pulse {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-/* Lightbox overrides */
 .yarl__root {
-  --yarl__color_backdrop: rgba(15, 10, 5, 0.95);
+  --yarl__color_backdrop: rgba(10, 10, 10, 0.95);
 }

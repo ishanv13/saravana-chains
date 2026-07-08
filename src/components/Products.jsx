@@ -25,7 +25,7 @@ export default function Products() {
   const slides = filtered.map((p) => ({ src: p.img, alt: p.name }))
 
   return (
-    <section id="products" style={{ padding: '112px 0', background: '#FAF7F2' }}>
+    <section id="products" style={{ padding: '112px 0', background: 'transparent' }}>
       <div className="section-container">
 
         {/* Header */}
@@ -35,11 +35,11 @@ export default function Products() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: false, margin: '-10%', amount: 0.2 }}
             className="font-body"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 12, color: '#C9A84C', fontSize: 11, letterSpacing: '0.4em', textTransform: 'uppercase', marginBottom: 16 }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 12, color: '#CA8A04', fontSize: 11, letterSpacing: '0.4em', textTransform: 'uppercase', marginBottom: 16 }}
           >
-            <span style={{ width: 32, height: 1, background: '#C9A84C', display: 'inline-block' }} />
+            <span style={{ width: 32, height: 1, background: '#CA8A04', display: 'inline-block' }} />
             Handcrafted Gold
-            <span style={{ width: 32, height: 1, background: '#C9A84C', display: 'inline-block' }} />
+            <span style={{ width: 32, height: 1, background: '#CA8A04', display: 'inline-block' }} />
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -47,9 +47,9 @@ export default function Products() {
             viewport={{ once: false, margin: '-10%', amount: 0.2 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="font-heading"
-            style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', fontWeight: 300, color: '#1A1A1A', display: 'block' }}
+            style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', fontWeight: 300, color: '#ffffff', display: 'block' }}
           >
-            Our <em style={{ color: '#C9A84C' }}>Catalogue</em>
+            Our <em style={{ color: '#CA8A04' }}>Catalogue</em>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -57,7 +57,7 @@ export default function Products() {
             viewport={{ once: false, margin: '-10%', amount: 0.2 }}
             transition={{ duration: 0.8, delay: 0.15 }}
             className="font-body"
-            style={{ color: '#6B6B6B', fontSize: 14, marginTop: 12, maxWidth: 420, margin: '12px auto 0' }}
+            style={{ color: '#A8A29E', fontSize: 14, marginTop: 12, maxWidth: 420, margin: '12px auto 0' }}
           >
             Click any piece to view in full - enquire directly via WhatsApp for wholesale pricing.
           </motion.p>
@@ -76,13 +76,16 @@ export default function Products() {
                 letterSpacing: '0.15em',
                 textTransform: 'uppercase',
                 borderRadius: 32,
-                border: activeCategory === cat ? 'none' : '1px solid #E8DDD0',
-                background: activeCategory === cat ? '#C9A84C' : 'transparent',
-                color: activeCategory === cat ? '#ffffff' : '#6B6B6B',
+                border: activeCategory === cat ? 'none' : '1px solid rgba(255,255,255,0.1)',
+                background: activeCategory === cat ? '#A16207' : 'rgba(255,255,255,0.03)',
+                color: activeCategory === cat ? '#ffffff' : '#A8A29E',
                 cursor: 'pointer',
-                transition: 'all 0.25s',
+                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
                 fontWeight: activeCategory === cat ? 500 : 400,
+                backdropFilter: 'blur(16px)',
               }}
+              onMouseEnter={e => { if(activeCategory !== cat) { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.color = '#ffffff' } }}
+              onMouseLeave={e => { if(activeCategory !== cat) { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.color = '#A8A29E' } }}
             >
               {cat}
             </button>
@@ -116,9 +119,9 @@ export default function Products() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, margin: '-10%', amount: 0.2 }}
           transition={{ duration: 0.8 }}
-          style={{ textAlign: 'center', marginTop: 72, paddingTop: 48, borderTop: '1px solid #E8DDD0' }}
+          style={{ textAlign: 'center', marginTop: 72, paddingTop: 48, borderTop: '1px solid rgba(255,255,255,0.1)' }}
         >
-          <p className="font-heading" style={{ fontSize: 22, color: '#6B6B6B', fontStyle: 'italic', marginBottom: 24 }}>
+          <p className="font-heading" style={{ fontSize: 22, color: '#A8A29E', fontStyle: 'italic', marginBottom: 24 }}>
             Interested in wholesale pricing or custom orders?
           </p>
           <a
@@ -131,7 +134,7 @@ export default function Products() {
               alignItems: 'center',
               gap: 10,
               padding: '14px 28px',
-              background: '#C9A84C',
+              background: '#A16207',
               color: '#ffffff',
               fontSize: 12,
               letterSpacing: '0.15em',
@@ -139,10 +142,10 @@ export default function Products() {
               fontWeight: 500,
               textDecoration: 'none',
               borderRadius: 32,
-              transition: 'background 0.3s',
+              transition: 'background 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
             }}
-            onMouseEnter={e => e.currentTarget.style.background = '#9A7A2E'}
-            onMouseLeave={e => e.currentTarget.style.background = '#C9A84C'}
+            onMouseEnter={e => { e.currentTarget.style.background = '#CA8A04' }}
+            onMouseLeave={e => { e.currentTarget.style.background = '#A16207' }}
           >
             <WaIcon />
             Get Wholesale Pricing
@@ -178,7 +181,8 @@ function ProductCard({ product, index, onClick }) {
         overflow: 'hidden',
         borderRadius: 16,
         cursor: 'pointer',
-        background: '#F0EBE1',
+        background: 'rgba(255,255,255,0.03)',
+        border: '1px solid rgba(255,255,255,0.08)',
         aspectRatio: '3/4',
       }}
     >
@@ -211,7 +215,7 @@ function ProductCard({ product, index, onClick }) {
         <p className="font-heading" style={{ color: '#ffffff', fontSize: 15, fontWeight: 500, lineHeight: 1.3, marginBottom: 4 }}>
           {product.name}
         </p>
-        <span className="font-body" style={{ color: '#C9A84C', fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase' }}>
+        <span className="font-body" style={{           color: '#CA8A04', fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase' }}>
           {product.category}
         </span>
       </div>

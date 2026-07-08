@@ -18,19 +18,9 @@ export default function Hero() {
         alignItems: 'center',
         justifyContent: 'center',
         overflow: 'hidden',
-        background: 'linear-gradient(135deg, #1A1208 0%, #2D2010 30%, #1A1208 60%, #0D0A05 100%)',
+        background: 'transparent',
       }}
     >
-      {/* Radial gold glow */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          pointerEvents: 'none',
-          background: 'radial-gradient(ellipse 70% 60% at 50% 40%, rgba(201,168,76,0.18) 0%, transparent 70%)',
-        }}
-      />
-
       {/* Content */}
       <div className="section-container" style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
 
@@ -44,16 +34,16 @@ export default function Hero() {
           <img
             src="https://nfc.dgtechsoln.com/wp-content/uploads/2025/08/WhatsApp-Image-2025-08-30-at-6.52.43-PM-300x300.jpeg"
             alt="Saravana Chains Logo"
-            style={{ width: 90, height: 90, borderRadius: '50%', objectFit: 'cover', border: '2px solid #C9A84C', padding: 4 }}
+            style={{ width: 90, height: 90, borderRadius: '50%', objectFit: 'cover', border: '2px solid #CA8A04', padding: 4 }}
           />
         </motion.div>
 
         {/* Est. badge */}
         <motion.div {...fadeUp(0.2)} style={{ display: 'flex', justifyContent: 'center', marginBottom: 24 }}>
-          <span className="font-body" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, color: 'rgba(201,168,76,0.7)', fontSize: 11, letterSpacing: '0.4em', textTransform: 'uppercase' }}>
-            <span style={{ width: 32, height: 1, background: 'rgba(201,168,76,0.4)', display: 'inline-block' }} />
+          <span className="font-body" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, color: 'rgba(202, 138, 4, 0.7)', fontSize: 11, letterSpacing: '0.4em', textTransform: 'uppercase' }}>
+            <span style={{ width: 32, height: 1, background: 'rgba(202, 138, 4, 0.4)', display: 'inline-block' }} />
             Est. 2019
-            <span style={{ width: 32, height: 1, background: 'rgba(201,168,76,0.4)', display: 'inline-block' }} />
+            <span style={{ width: 32, height: 1, background: 'rgba(202, 138, 4, 0.4)', display: 'inline-block' }} />
           </span>
         </motion.div>
 
@@ -72,7 +62,7 @@ export default function Hero() {
         <motion.p
           {...fadeUp(0.5)}
           className="font-heading"
-          style={{ fontStyle: 'italic', fontSize: 'clamp(1.1rem, 3vw, 1.5rem)', color: 'rgba(201,168,76,0.8)', letterSpacing: '0.05em', marginTop: 16, marginBottom: 12 }}
+          style={{ fontStyle: 'italic', fontSize: 'clamp(1.1rem, 3vw, 1.5rem)', color: 'rgba(202, 138, 4, 0.8)', letterSpacing: '0.05em', marginTop: 16, marginBottom: 12 }}
         >
           Crafting Gold Since 2019
         </motion.p>
@@ -91,9 +81,9 @@ export default function Hero() {
           {...fadeUp(0.65)}
           style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, marginBottom: 48 }}
         >
-          <span style={{ width: 64, height: 1, background: 'linear-gradient(to right, transparent, rgba(201,168,76,0.5))', display: 'inline-block' }} />
-          <span style={{ color: 'rgba(201,168,76,0.6)', fontSize: 12 }}>✦</span>
-          <span style={{ width: 64, height: 1, background: 'linear-gradient(to left, transparent, rgba(201,168,76,0.5))', display: 'inline-block' }} />
+          <span style={{ width: 64, height: 1, background: 'linear-gradient(to right, transparent, rgba(202, 138, 4, 0.5))', display: 'inline-block' }} />
+          <span style={{ color: 'rgba(202, 138, 4, 0.6)', fontSize: 12 }}>✦</span>
+          <span style={{ width: 64, height: 1, background: 'linear-gradient(to left, transparent, rgba(202, 138, 4, 0.5))', display: 'inline-block' }} />
         </motion.div>
 
         {/* CTAs */}
@@ -111,18 +101,17 @@ export default function Hero() {
               alignItems: 'center',
               gap: 12,
               padding: '14px 28px',
-              background: '#C9A84C',
+              background: '#A16207',
               color: '#ffffff',
               fontSize: 12,
               letterSpacing: '0.15em',
               textTransform: 'uppercase',
-              fontWeight: 500,
               textDecoration: 'none',
               borderRadius: 32,
-              transition: 'background 0.3s',
+              transition: 'background 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
             }}
-            onMouseEnter={e => e.currentTarget.style.background = '#9A7A2E'}
-            onMouseLeave={e => e.currentTarget.style.background = '#C9A84C'}
+            onMouseEnter={e => { e.currentTarget.style.background = '#CA8A04' }}
+            onMouseLeave={e => { e.currentTarget.style.background = '#A16207' }}
           >
             <WaIcon />
             Enquire on WhatsApp
@@ -135,17 +124,17 @@ export default function Hero() {
               alignItems: 'center',
               gap: 8,
               padding: '14px 28px',
-              border: '1px solid rgba(201,168,76,0.5)',
-              color: '#C9A84C',
+              border: '1px solid rgba(202, 138, 4, 0.5)',
+              color: '#CA8A04',
               fontSize: 12,
               letterSpacing: '0.15em',
               textTransform: 'uppercase',
               textDecoration: 'none',
               borderRadius: 32,
-              transition: 'background 0.3s',
+              transition: 'background 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
             }}
-            onMouseEnter={e => e.currentTarget.style.background = 'rgba(201,168,76,0.1)'}
-            onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(202, 138, 4, 0.1)' }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'transparent' }}
           >
             View Catalogue
             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -166,7 +155,7 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-          style={{ width: 1, height: 32, background: 'linear-gradient(to bottom, rgba(201,168,76,0.6), transparent)' }}
+          style={{ width: 1, height: 32, background: 'linear-gradient(to bottom, rgba(202, 138, 4, 0.6), transparent)' }}
         />
       </motion.div>
     </section>

@@ -26,7 +26,7 @@ export default function Navbar() {
       style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50 }}
       className={`transition-all duration-500 ${
         scrolled
-          ? 'bg-[#FAF7F2] shadow-sm border-b border-[#E8DDD0]'
+          ? 'glass-panel border-b border-[rgba(255,255,255,0.05)]'
           : 'bg-transparent'
       }`}
     >
@@ -41,7 +41,7 @@ export default function Navbar() {
           <div>
             <span
               className="font-heading font-semibold tracking-widest text-sm uppercase block transition-colors duration-500"
-              style={{ color: scrolled ? '#1A1A1A' : '#ffffff' }}
+              style={{ color: '#ffffff' }}
             >
               Saravana Chains
             </span>
@@ -60,8 +60,8 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="font-body text-sm tracking-widest uppercase transition-colors duration-300 hover:text-[#C9A84C]"
-              style={{ color: scrolled ? '#1A1A1A' : 'rgba(255,255,255,0.9)' }}
+              className="font-body text-sm tracking-widest uppercase transition-colors duration-300 hover:text-[#CA8A04]"
+              style={{ color: 'rgba(255,255,255,0.9)' }}
             >
               {link.label}
             </a>
@@ -77,7 +77,7 @@ export default function Navbar() {
               justifyContent: 'center',
               marginLeft: 16,
               padding: '10px 24px',
-              background: '#C9A84C',
+              background: '#A16207',
               color: '#ffffff',
               fontSize: 11,
               letterSpacing: '0.15em',
@@ -85,10 +85,10 @@ export default function Navbar() {
               fontWeight: 500,
               textDecoration: 'none',
               borderRadius: 32,
-              transition: 'background 0.3s',
+              transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
             }}
-            onMouseEnter={e => e.currentTarget.style.background = '#9A7A2E'}
-            onMouseLeave={e => e.currentTarget.style.background = '#C9A84C'}
+            onMouseEnter={e => { e.currentTarget.style.background = '#CA8A04'; e.currentTarget.style.transform = 'scale(1.05)' }}
+            onMouseLeave={e => { e.currentTarget.style.background = '#A16207'; e.currentTarget.style.transform = 'scale(1)' }}
           >
             Enquire Now
           </a>
@@ -103,21 +103,21 @@ export default function Navbar() {
           <span
             className="block h-0.5 w-6 transition-all duration-300"
             style={{
-              backgroundColor: scrolled ? '#1A1A1A' : '#ffffff',
+              backgroundColor: '#ffffff',
               transform: menuOpen ? 'rotate(45deg) translateY(8px)' : 'none',
             }}
           />
           <span
             className="block h-0.5 w-6 transition-all duration-300"
             style={{
-              backgroundColor: scrolled ? '#1A1A1A' : '#ffffff',
+              backgroundColor: '#ffffff',
               opacity: menuOpen ? 0 : 1,
             }}
           />
           <span
             className="block h-0.5 w-6 transition-all duration-300"
             style={{
-              backgroundColor: scrolled ? '#1A1A1A' : '#ffffff',
+              backgroundColor: '#ffffff',
               transform: menuOpen ? 'rotate(-45deg) translateY(-8px)' : 'none',
             }}
           />
@@ -132,7 +132,7 @@ export default function Navbar() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden bg-[#FAF7F2] border-b border-[#E8DDD0]"
+            className="md:hidden overflow-hidden glass-panel border-t border-[rgba(255,255,255,0.05)]"
           >
             <div className="flex flex-col px-6 py-6 gap-6">
               {navLinks.map((link) => (
@@ -140,7 +140,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="text-[#1A1A1A] font-body text-sm tracking-widest uppercase hover:text-[#C9A84C] transition-colors"
+                  className="text-white font-body text-sm tracking-widest uppercase hover:text-[#CA8A04] transition-colors"
                 >
                   {link.label}
                 </a>
@@ -155,7 +155,7 @@ export default function Navbar() {
                   alignItems: 'center',
                   justifyContent: 'center',
                   padding: '12px 24px',
-                  background: '#C9A84C',
+                  background: '#A16207',
                   color: '#ffffff',
                   fontSize: 11,
                   letterSpacing: '0.15em',

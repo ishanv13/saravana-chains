@@ -41,7 +41,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" style={{ padding: '112px 0', background: '#1A1208' }}>
+    <section id="services" style={{ padding: '112px 0', background: 'transparent' }}>
       <div className="section-container">
 
         {/* Header */}
@@ -52,11 +52,11 @@ export default function Services() {
             viewport={{ once: false, margin: '-10%', amount: 0.2 }}
             transition={{ duration: 0.6 }}
             className="font-body"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 12, color: '#C9A84C', fontSize: 11, letterSpacing: '0.4em', textTransform: 'uppercase', marginBottom: 20 }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 12, color: '#CA8A04', fontSize: 11, letterSpacing: '0.4em', textTransform: 'uppercase', marginBottom: 20 }}
           >
-            <span style={{ width: 32, height: 1, background: '#C9A84C', display: 'inline-block' }} />
+            <span style={{ width: 32, height: 1, background: '#CA8A04', display: 'inline-block' }} />
             What We Offer
-            <span style={{ width: 32, height: 1, background: '#C9A84C', display: 'inline-block' }} />
+            <span style={{ width: 32, height: 1, background: '#CA8A04', display: 'inline-block' }} />
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -66,7 +66,7 @@ export default function Services() {
             className="font-heading"
             style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', fontWeight: 300, color: '#ffffff', display: 'block' }}
           >
-            Our <em style={{ color: '#C9A84C' }}>Services</em>
+            Our <em style={{ color: '#CA8A04' }}>Services</em>
           </motion.h2>
         </div>
 
@@ -79,25 +79,21 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: false, margin: '-5%', amount: 0.1 }}
               transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="glass-panel"
               style={{
                 position: 'relative',
                 padding: 32,
-                borderRadius: 16,
-                border: '1px solid rgba(201,168,76,0.15)',
-                background: 'linear-gradient(135deg, rgba(201,168,76,0.04) 0%, transparent 100%)',
-                transition: 'border-color 0.4s',
                 cursor: 'default',
               }}
-              whileHover={{ borderColor: 'rgba(201,168,76,0.5)' }}
             >
-              <div style={{ color: 'rgba(201,168,76,0.7)', marginBottom: 24 }}>
+              <div style={{ color: '#CA8A04', marginBottom: 24 }}>
                 {s.icon}
               </div>
 
               <h3 className="font-heading" style={{ fontSize: 19, fontWeight: 500, color: '#ffffff', marginBottom: 12, lineHeight: 1.3 }}>
                 {s.title}
               </h3>
-              <p className="font-body" style={{ color: '#9B9B9B', fontSize: 13, lineHeight: 1.7 }}>
+              <p className="font-body" style={{ color: '#A8A29E', fontSize: 13, lineHeight: 1.7 }}>
                 {s.desc}
               </p>
             </motion.div>
