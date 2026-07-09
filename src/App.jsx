@@ -1,38 +1,54 @@
+import { useEffect } from 'react'
 import './index.css'
+import Scene from './components/Scene'
+import Loader from './components/Loader'
+import AssayFrame from './components/AssayFrame'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import About from './components/About'
+import Stage from './components/Stage'
+import Gallery from './components/Gallery'
+import Story from './components/Story'
 import Services from './components/Services'
-import Products from './components/Products'
-import WhyUs from './components/WhyUs'
+import Catalogue from './components/Catalogue'
+import Difference from './components/Difference'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import WhatsAppFAB from './components/WhatsAppFAB'
-import Scene from './components/Scene'
+import { startScrollTracking } from './three/scroll'
 
 export default function App() {
+  useEffect(() => startScrollTracking(), [])
+
   return (
     <>
+      <Loader />
       <Scene />
-      <div style={{ position: 'relative', zIndex: 10 }}>
-        <Navbar />
-        <main>
-          <Hero />
-          <About />
-          <Services />
-          <Products />
-          <WhyUs />
-          <Contact />
-          {/* Scroll padding for the 3D Jewelry Set animation at the end */}
-          <section id="featured-sets" style={{ height: '150vh', background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <h2 className="font-heading" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: 'rgba(255,255,255,0.8)', textAlign: 'center', zIndex: -1 }}>
-              <em style={{ color: '#CA8A04' }}>Exclusive</em> Featured Sets
-            </h2>
-          </section>
-        </main>
-        <Footer />
-        <WhatsAppFAB />
-      </div>
+      <AssayFrame />
+
+      <Navbar />
+      <main className="stage">
+        <Hero />
+        <Stage
+          id="stage-macro"
+          num="I"
+          caption="The Strand"
+          detail="Rope link · drawn, twisted & close-welded · Au 916"
+        />
+        <Story />
+        <Services />
+        <Stage
+          id="stage-collection"
+          num="II"
+          caption="The Collection"
+          detail="One strand becomes five hundred forms"
+        />
+        <Gallery />
+        <Catalogue />
+        <Difference />
+        <Contact />
+      </main>
+      <Footer />
+      <WhatsAppFAB />
     </>
   )
 }

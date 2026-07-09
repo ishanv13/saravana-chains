@@ -1,177 +1,89 @@
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 
-const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Catalogue', href: '#products' },
+const LOGO = 'https://nfc.dgtechsoln.com/wp-content/uploads/2025/08/WhatsApp-Image-2025-08-30-at-6.52.43-PM-300x300.jpeg'
+const WA = 'https://wa.me/+919944442901'
+const links = [
+  { label: 'Story', href: '#story' },
+  { label: 'Range', href: '#index' },
   { label: 'Contact', href: '#contact' },
 ]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60)
+    const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
-    <motion.nav
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50 }}
-      className={`transition-all duration-500 ${
-        scrolled
-          ? 'glass-panel border-b border-[rgba(255,255,255,0.05)]'
-          : 'bg-transparent'
-      }`}
+    <header
+      style={{
+        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 60,
+        transition: 'background .5s, border-color .5s',
+        background: scrolled ? 'rgba(10,7,5,0.72)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(14px)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(14px)' : 'none',
+        borderBottom: `1px solid ${scrolled ? 'var(--line)' : 'transparent'}`,
+      }}
     >
-      <div className="section-container flex items-center justify-between h-20">
-        {/* Logo */}
-        <a href="#hero" className="flex items-center gap-3">
-          <img
-            src="https://nfc.dgtechsoln.com/wp-content/uploads/2025/08/WhatsApp-Image-2025-08-30-at-6.52.43-PM-300x300.jpeg"
-            alt="Saravana Chains Logo"
-            style={{ width: 40, height: 40, borderRadius: '50%', objectFit: 'cover' }}
-          />
-          <div>
-            <span
-              className="font-heading font-semibold tracking-widest text-sm uppercase block transition-colors duration-500"
-              style={{ color: '#ffffff' }}
-            >
-              Saravana Chains
-            </span>
-            <span
-              className="font-body text-[10px] tracking-[0.3em] uppercase block transition-colors duration-500"
-              style={{ color: '#C9A84C' }}
-            >
-              Pvt. Ltd
-            </span>
-          </div>
+      <nav
+        style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          height: 72, padding: '0 var(--edge)', maxWidth: 1600, margin: '0 auto',
+        }}
+      >
+        <a href="#hero" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}>
+          <img src={LOGO} alt="Saravana Chains" width={38} height={38} style={{ borderRadius: '50%', objectFit: 'cover', border: '1px solid var(--line-strong)' }} />
+          <span style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15 }}>
+            <span className="f-display" style={{ fontSize: 16, letterSpacing: '0.02em', color: 'var(--ivory)' }}>Saravana Chains</span>
+            <span className="f-mono" style={{ fontSize: 9.5, letterSpacing: '0.32em', textTransform: 'uppercase', color: 'var(--gold)' }}>Est. 2019 · Madurai</span>
+          </span>
         </a>
 
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="font-body text-sm tracking-widest uppercase transition-colors duration-300 hover:text-[#CA8A04]"
-              style={{ color: 'rgba(255,255,255,0.9)' }}
-            >
-              {link.label}
-            </a>
+        <div className="nav-desktop" style={{ display: 'flex', alignItems: 'center', gap: 30 }}>
+          {links.map((l) => (
+            <a key={l.href} href={l.href} className="f-mono"
+              style={{ fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--taupe)', textDecoration: 'none', transition: 'color .3s' }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--gold-hi)')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--taupe)')}
+            >{l.label}</a>
           ))}
-          <a
-            href="https://wa.me/+919944442901"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-body"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginLeft: 16,
-              padding: '10px 24px',
-              background: '#A16207',
-              color: '#ffffff',
-              fontSize: 11,
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              fontWeight: 500,
-              textDecoration: 'none',
-              borderRadius: 32,
-              transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-            }}
-            onMouseEnter={e => { e.currentTarget.style.background = '#CA8A04'; e.currentTarget.style.transform = 'scale(1.05)' }}
-            onMouseLeave={e => { e.currentTarget.style.background = '#A16207'; e.currentTarget.style.transform = 'scale(1)' }}
-          >
-            Enquire Now
-          </a>
+          <a href={WA} target="_blank" rel="noopener noreferrer" className="btn btn-solid" style={{ padding: '11px 20px' }}>Enquire</a>
         </div>
 
-        {/* Mobile hamburger */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+          className="nav-burger"
+          aria-label="Menu"
+          aria-expanded={open}
+          onClick={() => setOpen(!open)}
+          style={{ display: 'none', flexDirection: 'column', gap: 5, background: 'none', border: 0, cursor: 'pointer', padding: 8 }}
         >
-          <span
-            className="block h-0.5 w-6 transition-all duration-300"
-            style={{
-              backgroundColor: '#ffffff',
-              transform: menuOpen ? 'rotate(45deg) translateY(8px)' : 'none',
-            }}
-          />
-          <span
-            className="block h-0.5 w-6 transition-all duration-300"
-            style={{
-              backgroundColor: '#ffffff',
-              opacity: menuOpen ? 0 : 1,
-            }}
-          />
-          <span
-            className="block h-0.5 w-6 transition-all duration-300"
-            style={{
-              backgroundColor: '#ffffff',
-              transform: menuOpen ? 'rotate(-45deg) translateY(-8px)' : 'none',
-            }}
-          />
+          <span style={{ width: 24, height: 1.5, background: 'var(--ivory)', transition: 'transform .3s', transform: open ? 'rotate(45deg) translateY(6.5px)' : 'none' }} />
+          <span style={{ width: 24, height: 1.5, background: 'var(--ivory)', transition: 'opacity .3s', opacity: open ? 0 : 1 }} />
+          <span style={{ width: 24, height: 1.5, background: 'var(--ivory)', transition: 'transform .3s', transform: open ? 'rotate(-45deg) translateY(-6.5px)' : 'none' }} />
         </button>
-      </div>
+      </nav>
 
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden glass-panel border-t border-[rgba(255,255,255,0.05)]"
-          >
-            <div className="flex flex-col px-6 py-6 gap-6">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-white font-body text-sm tracking-widest uppercase hover:text-[#CA8A04] transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
-              <a
-                href="https://wa.me/+919944442901"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-body"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: '12px 24px',
-                  background: '#A16207',
-                  color: '#ffffff',
-                  fontSize: 11,
-                  letterSpacing: '0.15em',
-                  textTransform: 'uppercase',
-                  fontWeight: 500,
-                  textDecoration: 'none',
-                  borderRadius: 32,
-                  alignSelf: 'flex-start',
-                }}
-              >
-                Enquire Now
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+      {open && (
+        <div style={{ padding: '8px var(--edge) 28px', display: 'flex', flexDirection: 'column', gap: 20, background: 'rgba(10,7,5,0.95)', borderTop: '1px solid var(--line)' }}>
+          {links.map((l) => (
+            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="f-mono"
+              style={{ fontSize: 13, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--ivory)', textDecoration: 'none' }}>{l.label}</a>
+          ))}
+          <a href={WA} target="_blank" rel="noopener noreferrer" className="btn btn-solid" style={{ alignSelf: 'flex-start' }}>Enquire on WhatsApp</a>
+        </div>
+      )}
+
+      <style>{`
+        @media (max-width: 820px) {
+          .nav-desktop { display: none !important; }
+          .nav-burger { display: flex !important; }
+        }
+      `}</style>
+    </header>
   )
 }
