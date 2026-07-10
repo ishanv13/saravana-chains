@@ -18,37 +18,37 @@ export default function Contact() {
         <h2 className="f-display" style={{ fontSize: 'clamp(2.4rem, 5vw, 3.6rem)', fontWeight: 300, lineHeight: 1.05, margin: '16px 0 14px' }}>
           Let's talk <span className="shimmer" style={{ fontStyle: 'italic', fontWeight: 500 }}>gold</span>
         </h2>
-        <p className="f-body" style={{ color: 'var(--taupe)', fontSize: 14.5, lineHeight: 1.75 }}>
+        <p className="f-body" style={{ color: 'var(--taupe)', fontSize: 16, lineHeight: 1.7 }}>
           We welcome wholesale enquiries, custom-order discussions and factory visits.
         </p>
       </FloatCard>
 
       <FloatCard pos={{ top: '14%', right: 'var(--edge)' }} from="right" delay={120} drift={1.3} width={300}>
-        <div className="f-mono" style={{ fontSize: 10, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: 10 }}>Director</div>
+        <div className="f-mono" style={{ fontSize: 11, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: 10 }}>Director</div>
         <a href="tel:+919944442901" style={{ textDecoration: 'none' }}>
-          <div className="f-display" style={{ fontSize: 17, color: 'var(--ivory)' }}>Suresh Kumar</div>
-          <div className="f-mono" style={{ fontSize: 12, color: 'var(--taupe)', marginTop: 4 }}>+91 99444 42901</div>
+          <div className="f-display" style={{ fontSize: 18, color: 'var(--ivory)' }}>Suresh Kumar</div>
+          <div className="f-mono" style={{ fontSize: 13, color: 'var(--taupe)', marginTop: 4 }}>+91 99444 42901</div>
         </a>
       </FloatCard>
 
       <FloatCard pos={{ top: '42%', right: '7%' }} from="right" delay={220} drift={2.1} width={300}>
-        <div className="f-mono" style={{ fontSize: 10, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: 10 }}>Shop</div>
+        <div className="f-mono" style={{ fontSize: 11, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: 10 }}>Shop</div>
         <a href="tel:+919597924916" style={{ textDecoration: 'none' }}>
-          <div className="f-display" style={{ fontSize: 17, color: 'var(--ivory)' }}>+91 95979 24916</div>
+          <div className="f-display" style={{ fontSize: 18, color: 'var(--ivory)' }}>+91 95979 24916</div>
         </a>
       </FloatCard>
 
       <FloatCard pos={{ bottom: '30%', right: 'var(--edge)' }} from="right" delay={300} drift={0.9} width={320}>
-        <div className="f-mono" style={{ fontSize: 10, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: 10 }}>Email</div>
+        <div className="f-mono" style={{ fontSize: 11, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: 10 }}>Email</div>
         <a href="mailto:saravanachains19@gmail.com" style={{ textDecoration: 'none' }}>
-          <div className="f-display" style={{ fontSize: 16, color: 'var(--ivory)', wordBreak: 'break-word' }}>saravanachains19@gmail.com</div>
+          <div className="f-display" style={{ fontSize: 17, color: 'var(--ivory)', wordBreak: 'break-word' }}>saravanachains19@gmail.com</div>
         </a>
       </FloatCard>
 
       <FloatCard pos={{ bottom: '24%', left: '8%' }} from="left" delay={260} drift={1.7} width={340}>
-        <div className="f-mono" style={{ fontSize: 10, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: 10 }}>Atelier</div>
+        <div className="f-mono" style={{ fontSize: 11, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: 10 }}>Atelier</div>
         <a href={contact.maps} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
-          <div className="f-display" style={{ fontSize: 16, color: 'var(--ivory)', lineHeight: 1.5 }}>
+          <div className="f-display" style={{ fontSize: 17, color: 'var(--ivory)', lineHeight: 1.5 }}>
             42L, CVR Complex, South Avani Moola Street, Madurai — 625001
           </div>
         </a>

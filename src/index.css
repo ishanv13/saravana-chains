@@ -31,12 +31,16 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  /* clip, NOT hidden: overflow-x hidden makes html/body a scroll container,
+     which silently breaks every position:sticky descendant (the gallery). */
+  overflow-x: hidden; /* fallback for old browsers */
+  overflow-x: clip;
   background: var(--bg);
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: hidden; /* fallback for old browsers */
+  overflow-x: clip;
   color: var(--ivory);
   font-family: var(--font-body);
   font-weight: 300;
@@ -72,8 +76,8 @@ body::after {
 
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.34em;
+  font-size: 12px;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--gold);
   font-weight: 500;
@@ -81,7 +85,7 @@ body::after {
 
 .spec {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.14em;
   color: var(--taupe);
   text-transform: uppercase;
@@ -173,7 +177,7 @@ body::after {
 .assay-tag {
   position: absolute;
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 11.5px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--taupe);
@@ -226,14 +230,14 @@ a:focus-visible, button:focus-visible {
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 26px;
   text-align: left;
-  background: rgba(10, 7, 5, 0.5);
-  backdrop-filter: blur(9px);
-  -webkit-backdrop-filter: blur(9px);
+  background: rgba(9, 6, 4, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--line);
   padding: 22px 24px;
 }
 .index-head {
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--gold);
@@ -245,14 +249,29 @@ a:focus-visible, button:focus-visible {
   display: flex;
   align-items: baseline;
   gap: 12px;
+  width: 100%;
   padding: 7px 0;
+  background: none;
+  border: 0;
   border-bottom: 1px solid var(--line);
+  text-align: left;
+  cursor: pointer;
   transition: padding-left .35s cubic-bezier(.16,1,.3,1);
 }
-.index-line:hover { padding-left: 8px; }
-.index-line:hover .index-name { color: var(--gold-hi); }
-.index-num { font-family: var(--font-mono); font-size: 10.5px; color: var(--gold-deep); }
-.index-name { font-family: var(--font-display); font-size: 1.02rem; font-weight: 400; color: var(--ivory); transition: color .3s; }
+.index-line:hover, .index-line:focus-visible { padding-left: 8px; }
+.index-line:hover .index-name, .index-line:focus-visible .index-name { color: var(--gold-hi); }
+.index-line:hover .index-open, .index-line:focus-visible .index-open { opacity: 1; transform: none; }
+.index-num { font-family: var(--font-mono); font-size: 11.5px; color: var(--gold-deep); }
+.index-name { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; color: var(--ivory); transition: color .3s; }
+.index-open {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  color: var(--gold);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity .3s, transform .3s;
+}
 
 /* ---------- Floating glass cards (content orbits the 3D, never blocks it) ---------- */
 .float-card {
@@ -271,9 +290,9 @@ a:focus-visible, button:focus-visible {
 .fly-down  { --fly: translateY(-48px); }
 
 .fc-glass {
-  background: rgba(13, 9, 6, 0.62);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(11, 8, 5, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   border: 1px solid var(--line-strong);
   padding: 24px 26px;
   animation: fc-bob 7s ease-in-out infinite alternate;
@@ -320,18 +339,50 @@ a:focus-visible, button:focus-visible {
   opacity: 0.85;
 }
 
+/* one wrapper per ring, all mounted at once; scroll flips their state class */
+.gal-item {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
 .gal-card {
   position: absolute;
   top: 50%;
   max-width: 250px;
-  animation: gal-pop .65s cubic-bezier(.16,1,.3,1) both;
+  transform: translateY(-50%);
+  transition:
+    opacity .6s cubic-bezier(.16,1,.3,1),
+    transform .6s cubic-bezier(.16,1,.3,1);
+}
+/* the details card trails the name card slightly for a hand-arranged feel */
+.gal-card.right { transition-delay: 70ms; }
+/* slide choreography: active on stage, passed exit upward, upcoming wait below */
+.gal-item.active .gal-card { opacity: 1; pointer-events: auto; }
+.gal-item.past .gal-card   { opacity: 0; transform: translateY(calc(-50% - 64px)); }
+.gal-item.future .gal-card { opacity: 0; transform: translateY(calc(-50% + 64px)); }
+button.gal-open {
+  display: block;
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  transition: border-color .3s;
+}
+button.gal-open:hover, button.gal-open:focus-visible { border-color: var(--gold); }
+button.gal-open:hover .gal-hint, button.gal-open:focus-visible .gal-hint { color: var(--gold-hi); }
+.gal-hint {
+  font-size: 10.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  transition: color .3s;
 }
 .gal-card.right { right: calc(var(--edge) + 22px); text-align: right; }
 .gal-card.left  { left: calc(var(--edge) + 22px); }
-@keyframes gal-pop {
-  from { opacity: 0; transform: translateY(calc(-50% + 30px)); filter: blur(7px); }
-  to   { opacity: 1; transform: translateY(-50%); filter: none; }
-}
 
 @media (max-width: 860px) {
   /* stacked-column mobile layout can't support a live-tracking wire to a
@@ -341,19 +392,92 @@ a:focus-visible, button:focus-visible {
     top: auto;
     left: var(--edge); right: var(--edge);
     text-align: left; max-width: none;
+    transform: none;
   }
   .gal-card.left  { bottom: 21%; }
   .gal-card.right { bottom: 6%; }
-  @keyframes gal-pop {
-    from { opacity: 0; transform: translateY(30px); filter: blur(7px); }
-    to   { opacity: 1; transform: none; filter: none; }
-  }
+  .gal-item.past .gal-card   { transform: translateY(-44px); }
+  .gal-item.future .gal-card { transform: translateY(44px); }
+}
+
+.gal-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ---------- Reference popup (index → photo + detail) ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--edge);
+  background: rgba(5, 3, 2, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: modal-fade .3s ease both;
+}
+.modal-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  width: 100%;
+  max-width: 860px;
+  max-height: 86vh;
+  overflow: auto;
+  background: rgba(11, 8, 5, 0.97);
+  border: 1px solid var(--line-strong);
+  animation: modal-pop .4s cubic-bezier(.16,1,.3,1) both;
+}
+.modal-img {
+  min-height: 280px;
+  background: var(--bg-2);
+}
+.modal-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.modal-info { padding: clamp(26px, 4vw, 44px); }
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--ivory);
+  background: rgba(10, 7, 5, 0.7);
+  border: 1px solid var(--line-strong);
+  cursor: pointer;
+  transition: color .3s, border-color .3s;
+}
+.modal-close:hover { color: var(--gold-hi); border-color: var(--gold); }
+@keyframes modal-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes modal-pop {
+  from { opacity: 0; transform: translateY(26px) scale(.97); }
+  to   { opacity: 1; transform: none; }
+}
+@media (max-width: 720px) {
+  .modal-card { grid-template-columns: 1fr; }
+  .modal-img { max-height: 42vh; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .float-card { opacity: 1; transform: none; transition: none; }
   .fc-glass { animation: none; }
-  .gal-card { animation: none; }
+  .gal-card { transition: none; }
+  .modal-overlay, .modal-card { animation: none; }
 }
 
 /* ---------- Stage panels (clear gallery moments for the 3D) ---------- */

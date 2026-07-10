@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import Reveal from './Reveal'
+import ChainModal from './ChainModal'
 import { products } from '../data/products'
 
 const order = ['Chains', 'Bracelets', 'Customised']
@@ -10,6 +12,8 @@ const groups = order.map((cat) => ({
 }))
 
 export default function Catalogue() {
+  const [selected, setSelected] = useState(null)
+
   return (
     <section id="index" className="panel" style={{ justifyContent: 'center' }}>
       <div className="wrap">
@@ -21,8 +25,8 @@ export default function Catalogue() {
             </h2>
           </Reveal>
           <Reveal delay={140}>
-            <p className="f-mono" style={{ fontSize: 10.5, letterSpacing: '0.14em', color: 'var(--taupe)', textTransform: 'uppercase', marginBottom: 34 }}>
-              {products.length} references · every one tunable to weight, length &amp; finish
+            <p className="f-mono" style={{ fontSize: 11.5, letterSpacing: '0.14em', color: 'var(--taupe)', textTransform: 'uppercase', marginBottom: 34 }}>
+              {products.length} references · tap any reference for its photo &amp; detail
             </p>
           </Reveal>
 
@@ -33,22 +37,31 @@ export default function Catalogue() {
                   {g.cat} <span style={{ color: 'var(--gold-deep)' }}>· {String(g.items.length).padStart(2, '0')}</span>
                 </div>
                 {g.items.map((p) => (
-                  <div key={p.id} className="index-line">
+                  <button
+                    key={p.id}
+                    type="button"
+                    className="index-line"
+                    onClick={() => setSelected(p)}
+                    aria-haspopup="dialog"
+                  >
                     <span className="index-num">{String(p.no).padStart(2, '0')}</span>
                     <span className="index-name">{p.name}</span>
-                  </div>
+                    <span className="index-open" aria-hidden="true">+</span>
+                  </button>
                 ))}
               </Reveal>
             ))}
           </div>
 
           <Reveal>
-            <p className="f-body" style={{ color: 'var(--taupe)', fontSize: 13.5, marginTop: 30 }}>
+            <p className="f-body" style={{ color: 'var(--taupe)', fontSize: 15, marginTop: 30 }}>
               <a href="https://wa.me/+919944442901" target="_blank" rel="noopener noreferrer" className="f-mono" style={{ color: 'var(--gold-hi)', textDecoration: 'none', letterSpacing: '0.08em' }}>Request the full catalogue →</a>
             </p>
           </Reveal>
         </div>
       </div>
+
+      <ChainModal product={selected} onClose={() => setSelected(null)} />
     </section>
   )
 }

@@ -25,12 +25,12 @@ export default function Services() {
       </FloatCard>
 
       {services.map((s, i) => (
-        <FloatCard key={s.title} {...positions[i]} width={300}>
-          <div className="f-mono" style={{ fontSize: 10.5, color: 'var(--gold-deep)', letterSpacing: '0.12em', marginBottom: 14 }}>
+        <FloatCard key={s.title} {...positions[i]} width={310}>
+          <div className="f-mono" style={{ fontSize: 11.5, color: 'var(--gold-deep)', letterSpacing: '0.12em', marginBottom: 14 }}>
             {String(i + 1).padStart(2, '0')} / 04
           </div>
-          <h3 className="f-display" style={{ fontSize: 19, fontWeight: 400, color: 'var(--ivory)', marginBottom: 10, lineHeight: 1.25 }}>{s.title}</h3>
-          <p className="f-body" style={{ fontSize: 13, lineHeight: 1.65, color: 'var(--taupe)' }}>{s.desc}</p>
+          <h3 className="f-display" style={{ fontSize: 21, fontWeight: 400, color: 'var(--ivory)', marginBottom: 10, lineHeight: 1.25 }}>{s.title}</h3>
+          <p className="f-body" style={{ fontSize: 15, lineHeight: 1.65, color: 'var(--taupe)' }}>{s.desc}</p>
         </FloatCard>
       ))}
     </section>

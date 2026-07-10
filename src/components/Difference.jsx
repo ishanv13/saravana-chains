@@ -25,11 +25,11 @@ export default function Difference() {
       </FloatCard>
 
       {stats.map((s, i) => (
-        <FloatCard key={s.label} {...positions[i]} width={260}>
+        <FloatCard key={s.label} {...positions[i]} width={270}>
           <div style={{ textAlign: 'center' }}>
             <div className="f-display gold-text" style={{ fontSize: 'clamp(2rem, 3.5vw, 2.6rem)', fontWeight: 500, lineHeight: 1 }}>{s.value}</div>
-            <div className="f-mono" style={{ fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--ivory)', margin: '12px 0 8px' }}>{s.label}</div>
-            <p className="f-body" style={{ fontSize: 12, lineHeight: 1.6, color: 'var(--taupe)' }}>{s.desc}</p>
+            <div className="f-mono" style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--ivory)', margin: '12px 0 8px' }}>{s.label}</div>
+            <p className="f-body" style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--taupe)' }}>{s.desc}</p>
           </div>
         </FloatCard>
       ))}

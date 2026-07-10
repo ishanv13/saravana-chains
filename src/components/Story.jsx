@@ -18,7 +18,7 @@ export default function Story() {
       </FloatCard>
 
       <FloatCard pos={{ top: '32%', right: 'var(--edge)' }} from="right" delay={140} drift={1.4} width={350}>
-        <p className="f-body" style={{ color: 'var(--taupe)', fontSize: 14.5, lineHeight: 1.8 }}>
+        <p className="f-body" style={{ color: 'var(--taupe)', fontSize: 16, lineHeight: 1.75 }}>
           Since 2019, Saravana Chains has drawn fine gold jewellery from the heart of
           Madurai — one of India's most storied goldsmithing cities — pairing traditional
           Tamil craftsmanship with modern manufacturing precision.
@@ -26,7 +26,7 @@ export default function Story() {
       </FloatCard>
 
       <FloatCard pos={{ bottom: '18%', left: '10%' }} from="up" delay={240} drift={2.2} width={350}>
-        <p className="f-body" style={{ color: 'var(--taupe)', fontSize: 14.5, lineHeight: 1.8 }}>
+        <p className="f-body" style={{ color: 'var(--taupe)', fontSize: 16, lineHeight: 1.75 }}>
           As a dedicated manufacturer and wholesaler, we supply retailers and jewellers
           across India — machine-made consistency, handmade warmth, and fully bespoke
           ornaments made to your specification.
@@ -37,8 +37,8 @@ export default function Story() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14 }}>
           {stats.map(([label, value]) => (
             <div key={label}>
-              <div className="f-display gold-text" style={{ fontSize: '1.15rem', fontWeight: 500 }}>{value}</div>
-              <div className="f-mono" style={{ fontSize: 9, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--taupe)', marginTop: 6 }}>{label}</div>
+              <div className="f-display gold-text" style={{ fontSize: '1.3rem', fontWeight: 500 }}>{value}</div>
+              <div className="f-mono" style={{ fontSize: 10.5, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--taupe)', marginTop: 6 }}>{label}</div>
             </div>
           ))}
         </div>

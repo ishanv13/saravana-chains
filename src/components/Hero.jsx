@@ -21,7 +21,7 @@ export default function Hero() {
           <br />
           <span className="shimmer" style={{ fontWeight: 500, fontStyle: 'italic' }}>Chains</span>
         </h1>
-        <p className="f-body" style={{ color: 'var(--taupe)', fontSize: 'clamp(0.95rem, 1.6vw, 1.05rem)', lineHeight: 1.7, marginTop: 20 }}>
+        <p className="f-body" style={{ color: 'var(--taupe)', fontSize: 'clamp(1.05rem, 1.8vw, 1.15rem)', lineHeight: 1.7, marginTop: 20 }}>
           A Madurai atelier drawing gold into chains and bracelets —
           machine-precise, hand-finished, supplied wholesale to jewellers across India.
         </p>
@@ -31,8 +31,8 @@ export default function Hero() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
           {[['Est.', '2019'], ['Trade', 'Wholesale'], ['Purity', '22K · 916']].map(([k, v]) => (
             <div key={k}>
-              <div className="f-mono" style={{ fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--gold-deep)' }}>{k}</div>
-              <div className="f-mono" style={{ fontSize: 14, color: 'var(--ivory)', marginTop: 4 }}>{v}</div>
+              <div className="f-mono" style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--gold-deep)' }}>{k}</div>
+              <div className="f-mono" style={{ fontSize: 16, color: 'var(--ivory)', marginTop: 4 }}>{v}</div>
             </div>
           ))}
         </div>
@@ -46,7 +46,7 @@ export default function Hero() {
       </FloatCard>
 
       <div className="scroll-cue" aria-hidden="true">
-        <span className="f-mono" style={{ fontSize: 9.5, letterSpacing: '0.34em', textTransform: 'uppercase', color: 'var(--taupe)' }}>Scroll to examine</span>
+        <span className="f-mono" style={{ fontSize: 10.5, letterSpacing: '0.34em', textTransform: 'uppercase', color: 'var(--taupe)' }}>Scroll to examine</span>
         <span className="scroll-cue-line" />
       </div>
 

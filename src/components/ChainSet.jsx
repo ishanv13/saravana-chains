@@ -5,7 +5,7 @@ import * as THREE from 'three'
 import { scroll, anchor, range } from '../three/scroll'
 import { sample } from '../three/timeline'
 import { measureFit, boundsInRoot } from '../three/fit'
-import { gallery } from '../three/gallery'
+import { gallery, notifyGallery } from '../three/gallery'
 
 const MODEL = '/saravana-chains/chain_set.glb'
 const TARGET = 6.4 // world height of the showcase after normalization
@@ -59,6 +59,7 @@ export default function ChainSet(props) {
       .sort((a, b) => b.radius - a.radius) // outermost ring first
 
     gallery.count = rings.length
+    notifyGallery()
     setFit({ ...f, rings })
   }, [scene])
 
@@ -92,7 +93,7 @@ export default function ChainSet(props) {
       // dwell on each ring for 60% of its segment, then glide to the next
       const k = frac < 0.6 ? 0 : (frac - 0.6) / 0.4
       const e = k * k * (3 - 2 * k)
-      gallery.current = i
+      if (gallery.current !== i) { gallery.current = i; notifyGallery() }
 
       // slow continuous turn while visiting the rings
       const ryT = -0.15 + (i + e) * 0.22
@@ -121,13 +122,20 @@ export default function ChainSet(props) {
       g.position.y = THREE.MathUtils.damp(g.position.y, _focusA.y + swayY * 0.4, L, delta)
       g.position.z = THREE.MathUtils.damp(g.position.z, _focusA.z, L, delta)
 
-      // project the ring actually on stage (post-damping, so the leader line
-      // tracks its true on-screen position even mid-glide) to viewport fractions
+      // Pin the callout anchors to the ring's METAL (its left/right circumference
+      // edge, not the hollow centre), re-projected post-damping every frame so the
+      // leader lines stay fixed on the ring even while it glides between shots.
       const ring = fit.rings[i]
-      _ringWorld.copy(ring.center).sub(fit.center).multiplyScalar(sWorld).applyEuler(g.rotation).add(g.position)
-      const ndc = _ringWorld.project(state.camera)
-      gallery.sx = ndc.x * 0.5 + 0.5
-      gallery.sy = 1 - (ndc.y * 0.5 + 0.5)
+      const anchorTo = (sign, kx, ky) => {
+        _ringWorld
+          .set(ring.center.x + sign * ring.radius * 0.96, ring.center.y, ring.center.z)
+          .sub(fit.center).multiplyScalar(sWorld).applyEuler(g.rotation).add(g.position)
+          .project(state.camera)
+        gallery[kx] = _ringWorld.x * 0.5 + 0.5
+        gallery[ky] = 1 - (_ringWorld.y * 0.5 + 0.5)
+      }
+      anchorTo(-1, 'lx', 'ly')
+      anchorTo(1, 'rx', 'ry')
     } else {
       // ---- keyframed shots outside the gallery ----
       const keys = [

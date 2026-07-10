@@ -24,9 +24,9 @@ export default function Navbar() {
       style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 60,
         transition: 'background .5s, border-color .5s',
-        background: scrolled ? 'rgba(10,7,5,0.72)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(14px)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(14px)' : 'none',
+        background: scrolled ? 'rgba(9,6,4,0.88)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(16px)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
         borderBottom: `1px solid ${scrolled ? 'var(--line)' : 'transparent'}`,
       }}
     >
@@ -39,15 +39,15 @@ export default function Navbar() {
         <a href="#hero" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}>
           <img src={LOGO} alt="Saravana Chains" width={38} height={38} style={{ borderRadius: '50%', objectFit: 'cover', border: '1px solid var(--line-strong)' }} />
           <span style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15 }}>
-            <span className="f-display" style={{ fontSize: 16, letterSpacing: '0.02em', color: 'var(--ivory)' }}>Saravana Chains</span>
-            <span className="f-mono" style={{ fontSize: 9.5, letterSpacing: '0.32em', textTransform: 'uppercase', color: 'var(--gold)' }}>Est. 2019 · Madurai</span>
+            <span className="f-display" style={{ fontSize: 17, letterSpacing: '0.02em', color: 'var(--ivory)' }}>Saravana Chains</span>
+            <span className="f-mono" style={{ fontSize: 10.5, letterSpacing: '0.32em', textTransform: 'uppercase', color: 'var(--gold)' }}>Est. 2019 · Madurai</span>
           </span>
         </a>
 
         <div className="nav-desktop" style={{ display: 'flex', alignItems: 'center', gap: 30 }}>
           {links.map((l) => (
             <a key={l.href} href={l.href} className="f-mono"
-              style={{ fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--taupe)', textDecoration: 'none', transition: 'color .3s' }}
+              style={{ fontSize: 12, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--taupe)', textDecoration: 'none', transition: 'color .3s' }}
               onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--gold-hi)')}
               onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--taupe)')}
             >{l.label}</a>
@@ -69,10 +69,10 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div style={{ padding: '8px var(--edge) 28px', display: 'flex', flexDirection: 'column', gap: 20, background: 'rgba(10,7,5,0.95)', borderTop: '1px solid var(--line)' }}>
+        <div style={{ padding: '8px var(--edge) 28px', display: 'flex', flexDirection: 'column', gap: 20, background: 'rgba(9,6,4,0.97)', borderTop: '1px solid var(--line)' }}>
           {links.map((l) => (
             <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="f-mono"
-              style={{ fontSize: 13, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--ivory)', textDecoration: 'none' }}>{l.label}</a>
+              style={{ fontSize: 14.5, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--ivory)', textDecoration: 'none' }}>{l.label}</a>
           ))}
           <a href={WA} target="_blank" rel="noopener noreferrer" className="btn btn-solid" style={{ alignSelf: 'flex-start' }}>Enquire on WhatsApp</a>
         </div>
